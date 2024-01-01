@@ -19,7 +19,7 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 
-private:
+protected:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 	class USpringArmComponent* CameraBoom;
 
@@ -31,6 +31,42 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 	FRotator CameraRotation;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Ring")
+	class USkeletalMeshComponent* Ring;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Amulet")
+	class USkeletalMeshComponent* Amulet;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tools")
+	class USkeletalMeshComponent* Tools;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Head")
+	class USkeletalMeshComponent* Head;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Hands")
+	class USkeletalMeshComponent* Hands;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Legs")
+	class USkeletalMeshComponent* Legs;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Feet")
+	class USkeletalMeshComponent* Feet;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ShieldSlot")
+	class USkeletalMeshComponent* ShieldSlot;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "WeaponSlot")
+	class USkeletalMeshComponent* WeaponSlot;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Slot1")
+	class USkeletalMeshComponent* Slot1;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Slot2")
+	class USkeletalMeshComponent* Slot2;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Slot3")
+	class USkeletalMeshComponent* Slot3;
 
 protected:
 	// Called when the game starts or when spawned
