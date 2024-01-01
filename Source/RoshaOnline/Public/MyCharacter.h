@@ -4,6 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Net/UnrealNetwork.h"
+#include "Kismet/KismetMathLibrary.h"
+
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -14,6 +18,19 @@ class ROSHAONLINE_API AMyCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
+
+private:
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	class USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	class UCameraComponent* FollowCamera;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	FVector CameraLocation;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	FRotator CameraRotation;
 
 protected:
 	// Called when the game starts or when spawned
