@@ -79,6 +79,8 @@ AMyCharacter::AMyCharacter()
 	// Player Slot3
 	Slot3 = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Slot3"));
 	Slot3->SetupAttachment(GetMesh());
+
+	MasterComponent = GetMesh();
 }
 
 // Called when the game starts or when spawned
@@ -92,6 +94,25 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+}
+
+void AMyCharacter::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+
+	Ring->SetMasterPoseComponent(MasterComponent);
+	Amulet->SetMasterPoseComponent(MasterComponent);
+	Tools->SetMasterPoseComponent(MasterComponent);
+	Head->SetMasterPoseComponent(MasterComponent);
+	Hands->SetMasterPoseComponent(MasterComponent);
+	Legs->SetMasterPoseComponent(MasterComponent);
+	Feet->SetMasterPoseComponent(MasterComponent);
+	ShieldSlot->SetMasterPoseComponent(MasterComponent);
+	WeaponSlot->SetMasterPoseComponent(MasterComponent);
+	Slot1->SetMasterPoseComponent(MasterComponent);
+	Slot2->SetMasterPoseComponent(MasterComponent);
+	Slot3->SetMasterPoseComponent(MasterComponent);
 
 }
 

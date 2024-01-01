@@ -68,6 +68,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Slot3")
 	class USkeletalMeshComponent* Slot3;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "MasterComponent")
+	USkeletalMeshComponent* MasterComponent;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -77,6 +80,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
