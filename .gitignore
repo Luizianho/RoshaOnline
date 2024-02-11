@@ -1,0 +1,214 @@
+# Unreal Engine
+Intermediate/
+Saved/
+Binaries/
+Build/
+Config/
+Content/
+DerivedDataCache/
+Plugins/
+Saved/
+Source/*.cs
+Source/RoshaOnline/*.cs
+
+*.cs
+*.sln
+*.uproject
+
+# Visual Studio Code
+.vscode/
+.vsconfig
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Compiled Object files, Static and Dynamic libs
+*.slo
+*.lo
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+
+# Compiled files
+*.sbr
+*.pdb
+*.cachefile
+
+# Logs
+*.log
+*.log.*
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Java
+*.class
+
+# Compiled JAR files
+*.jar
+
+# IntelliJ
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.suo
+*.sdf
+*.opensdf
+*.pin
+*.pwn
+*.docstates
+*.userosscache
+*.log
+*.iws
+*.ids
+*.ipr
+
+# OS generated files
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+
+# Thumbnail cache files
+._*
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code folders
+.vscode/
+.vs/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.suo
+*.sdf
+*.opensdf
+*.pin
+*.pwn
+*.docstates
+*.userosscache
+*.log
+*.iws
+*.ids
+*.ipr
+
+# .NET Synchronization Context
+*.syncinfo
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code folders
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.suo
+*.sdf
+*.opensdf
+*.pin
+*.pwn
+*.docstates
+*.userosscache
+*.log
+*.iws
+*.ids
+*.ipr
+
+# .NET Synchronization Context
+*.syncinfo
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
