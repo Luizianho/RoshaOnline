@@ -27,5 +27,5 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(BlueprintReadWrite)
-	int32 Test;
+	int32 Test2;
 };
