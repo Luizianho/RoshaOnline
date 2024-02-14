@@ -70,8 +70,15 @@ void ARoshaPlayerState::CreateLoginRequestComplete(FHttpRequestPtr Request, FHtt
                     if (Status == TEXT("OK"))
                     {
                         // Logowanie udane
-                        UE_LOG(LogTemp, Warning, TEXT("Login successful!"));
-                        return;
+                        FString Local_AccountID;
+                        FString Local_Email;
+
+                        if (JsonObject->TryGetStringField(TEXT("userid"), Local_AccountID) && JsonObject->TryGetStringField(TEXT("email"), Local_Email))
+                        {
+                            // Logowanie udane
+                            UE_LOG(LogTemp, Warning, TEXT("Login successful! User ID: %s, Email: %s"), *Local_AccountID, *Local_Email);
+                            return;
+                        }                        
                     }
                     else
                     {
