@@ -6,6 +6,18 @@
 #include "GameFramework/PlayerState.h"
 #include "RoshaPlayerState.generated.h"
 
+USTRUCT(BlueprintType)
+struct FCharacterData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	int32 ID;
+
+	UPROPERTY(BlueprintReadWrite)
+	FString Name;
+};
+
 class IHttpRequest;
 class IHttpResponse;
 
@@ -19,22 +31,24 @@ class ROSHAONLINE_API ARoshaPlayerState : public APlayerState
 
 public:
 
-	// Enum do wykorzystanai na kiedys
-	//UFUNCTION(BlueprintCallable, Category = "DB")
-	//void SendRequest(ERequestType RequestType);
-
+	// Wysylam Request do PHP - Logowanie
 	UFUNCTION(BlueprintCallable, Category = "DB")
 	void CreateLoginRequest(FString LoginVal, FString PassVal);
 
+	// Wysylam Request do PHP - Pobranie listy postaci
+	UFUNCTION(BlueprintCallable, Category = "DB")
+	void CreateGetAllCharactersRequest(int32 UserID);
+
+	// Otrzymuje Response z PHP - Weryfikacja logowania
 	void CreateLoginRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//ERequestType DBRequestType;
+	// Otrzymuje Response z PHP - Proba pobrania listy postaci
+	void CreateGetAllcharactersRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+
 
 	UPROPERTY(BlueprintReadOnly)
 	FString LoginName;
 
 	UPROPERTY(BlueprintReadOnly)
 	FString PassName;
-
 };
