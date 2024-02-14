@@ -13,5 +13,11 @@ UCLASS()
 class ROSHAONLINE_API ALobbyController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+	virtual void BeginPlay() override;
+
+	// Deklaracja funkcji GetRoshaIPAddress()
+	void GetRoshaIPAddress();
 	
 };

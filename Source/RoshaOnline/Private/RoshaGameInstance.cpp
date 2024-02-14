@@ -57,8 +57,6 @@ void URoshaGameInstance::HandleRoshaIPComplete(FHttpRequestPtr Request, FHttpRes
                 }
             }
         }
-
-        UE_LOG(LogTemp, Error, TEXT("Failed to parse response or status is not OK."));
     }
     else
     {
