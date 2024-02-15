@@ -79,21 +79,24 @@ void ARoshaPlayerState::CreateLoginRequestComplete(FHttpRequestPtr Request, FHtt
                     if (Status == TEXT("OK"))
                     {
                         // Logowanie udane
-                        int32 Local_AccountID;
+                        
                         FString Local_Email;
 
-                        if (JsonObject->TryGetNumberField(TEXT("userid"), Local_AccountID) && JsonObject->TryGetStringField(TEXT("email"), Local_Email))
+                        if (JsonObject->TryGetNumberField(TEXT("userid"), AccID) && JsonObject->TryGetStringField(TEXT("email"), Local_Email))
                         {
-                            // Logowanie udane
-                            UE_LOG(LogTemp, Warning, TEXT("Login successful! User ID: %d, Email: %s"), Local_AccountID, *Local_Email);
-                            CreateGetAllCharactersRequest(Local_AccountID);
+                            // Pobieramy ID gracza i Email
+                            UE_LOG(LogTemp, Warning, TEXT("Login successful! User ID: %d, Email: %s"), AccID, *Local_Email);
+                            
+                            // Przechodzimy do panelu postaci
+                            SetVisibilityLoginCanvas();
+                            CreateGetAllCharactersRequest(AccID);
                             return;
                         }                        
                     }
                     else
                     {
-                        //UE_LOG(LogTemp, Warning, TEXT("Invalid login or password"));
-                        //return;
+                        UE_LOG(LogTemp, Warning, TEXT("Invalid login or password"));
+                        return;
                     }
                 }
             }
@@ -122,8 +125,7 @@ void ARoshaPlayerState::CreateGetAllcharactersRequestComplete(FHttpRequestPtr Re
                 {
                     if (Status == TEXT("OK"))
                     {
-                        TArray<FCharacterData> Characters;
-
+                        
                         // Parsowanie odpowiedzi JSON
                         TArray<TSharedPtr<FJsonValue>> CharactersArray = JsonObject->GetArrayField(TEXT("characters"));
 
@@ -132,17 +134,19 @@ void ARoshaPlayerState::CreateGetAllcharactersRequestComplete(FHttpRequestPtr Re
                             TSharedPtr<FJsonObject> CharacterObject = CharacterValue->AsObject();
 
                             // Pobranie ID i Name postaci
-                            int32 ID = CharacterObject->GetIntegerField(TEXT("id"));
-                            FString Name = CharacterObject->GetStringField(TEXT("name"));
+                            ID = CharacterObject->GetIntegerField(TEXT("id"));
+                            Name = CharacterObject->GetStringField(TEXT("name"));
 
                             // Stworzenie obiektu postaci i dodanie go do tablicy
-                            FCharacterData NewCharacter;
                             NewCharacter.ID = ID;
                             NewCharacter.Name = Name;
                             Characters.Add(NewCharacter);
 
-                            // Wyœwietlenie ID i Name postaci za pomoc¹ logu Unreal Engine
+                            // Wyœwietlenie ID i Name postaci 
                             UE_LOG(LogTemp, Warning, TEXT("Character ID: %d, Name: %s"), ID, *Name);
+
+                            // Wyœwietlamy listê postaci w przycisku
+                            GetPlayerList();
                         }
                     }
                 }
@@ -166,9 +170,3 @@ void ARoshaPlayerState::CreateGetAllcharactersRequestComplete(FHttpRequestPtr Re
         UE_LOG(LogTemp, Warning, TEXT("Failed to receive valid response."));
     }
 }
-
-
-
-
-
-

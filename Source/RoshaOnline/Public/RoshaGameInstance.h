@@ -22,6 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Request")
 	void GetRoshaIPAddress();
 
+	UFUNCTION(BlueprintCallable, Category = "Request")
+	void ConnectToServer(const FString IP);
+
 	void HandleRoshaIPComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -29,4 +32,6 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FString RoshaStatusPage;
+
+
 };

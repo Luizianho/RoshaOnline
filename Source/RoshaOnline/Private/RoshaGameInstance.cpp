@@ -3,6 +3,7 @@
 
 #include "RoshaGameInstance.h"
 #include "Http.h"
+#include "Kismet/GameplayStatics.h"
 
 void URoshaGameInstance::GetRoshaIPAddress()
 {
@@ -20,6 +21,11 @@ void URoshaGameInstance::GetRoshaIPAddress()
 
 	// Wysy³amy zapytanie
 	HttpRequest->ProcessRequest();
+}
+
+void URoshaGameInstance::ConnectToServer(const FString IP)
+{
+    UGameplayStatics::OpenLevel(this, *IP);
 }
 
 void URoshaGameInstance::HandleRoshaIPComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)

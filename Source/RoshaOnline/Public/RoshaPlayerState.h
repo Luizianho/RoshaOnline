@@ -45,10 +45,32 @@ public:
 	// Otrzymuje Response z PHP - Proba pobrania listy postaci
 	void CreateGetAllcharactersRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DB")
+	void SetVisibilityLoginCanvas();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DB")
+	void GetPlayerList();
+
 
 	UPROPERTY(BlueprintReadOnly)
 	FString LoginName;
 
 	UPROPERTY(BlueprintReadOnly)
 	FString PassName;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<FCharacterData> Characters;
+
+	UPROPERTY(BlueprintReadOnly)
+	FCharacterData NewCharacter;
+
+	UPROPERTY(BlueprintReadOnly)
+	int32 AccID;
+
+	UPROPERTY(BlueprintReadOnly)
+	int32 ID;
+
+	UPROPERTY(BlueprintReadOnly)
+	FString Name;
+
 };
