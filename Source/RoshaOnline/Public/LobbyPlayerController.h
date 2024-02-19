@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Blueprint/UserWidget.h"
-#include "MainMenu.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "LobbyPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ROSHAONLINE_API UMainMenu : public UUserWidget
+class ROSHAONLINE_API ALobbyPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	

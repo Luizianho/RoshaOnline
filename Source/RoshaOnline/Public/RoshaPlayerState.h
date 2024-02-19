@@ -6,71 +6,12 @@
 #include "GameFramework/PlayerState.h"
 #include "RoshaPlayerState.generated.h"
 
-USTRUCT(BlueprintType)
-struct FCharacterData
-{
-	GENERATED_BODY()
-
-	UPROPERTY(BlueprintReadWrite)
-	int32 ID;
-
-	UPROPERTY(BlueprintReadWrite)
-	FString Name;
-};
-
-class IHttpRequest;
-class IHttpResponse;
-
-typedef TSharedPtr<IHttpRequest, ESPMode::ThreadSafe> FHttpRequestPtr;
-typedef TSharedPtr<IHttpResponse, ESPMode::ThreadSafe> FHttpResponsePtr;
-
+/**
+ * 
+ */
 UCLASS()
 class ROSHAONLINE_API ARoshaPlayerState : public APlayerState
 {
 	GENERATED_BODY()
-
-public:
-
-	// Wysylam Request do PHP - Logowanie
-	UFUNCTION(BlueprintCallable, Category = "DB")
-	void CreateLoginRequest(FString LoginVal, FString PassVal);
-
-	// Wysylam Request do PHP - Pobranie listy postaci
-	UFUNCTION(BlueprintCallable, Category = "DB")
-	void CreateGetAllCharactersRequest(int32 UserID);
-
-	// Otrzymuje Response z PHP - Weryfikacja logowania
-	void CreateLoginRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
-
-	// Otrzymuje Response z PHP - Proba pobrania listy postaci
-	void CreateGetAllcharactersRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DB")
-	void SetVisibilityLoginCanvas();
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DB")
-	void GetPlayerList();
-
-
-	UPROPERTY(BlueprintReadOnly)
-	FString LoginName;
-
-	UPROPERTY(BlueprintReadOnly)
-	FString PassName;
-
-	UPROPERTY(BlueprintReadOnly)
-	TArray<FCharacterData> Characters;
-
-	UPROPERTY(BlueprintReadOnly)
-	FCharacterData NewCharacter;
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 AccID;
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 ID;
-
-	UPROPERTY(BlueprintReadOnly)
-	FString Name;
-
+	
 };
